@@ -23,16 +23,16 @@ The target dataset for the thesis is the 8-class split inside:
 ```text
 dataset/
   train/
-    Apple/
-    Banana/
+    apple/
+    banana/
     ...
   validation/
-    Apple/
-    Banana/
+    apple/
+    banana/
     ...
   test/
-    Apple/
-    Banana/
+    apple/
+    banana/
     ...
 ```
 
