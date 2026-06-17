@@ -2,6 +2,7 @@ import argparse
 import json
 from pathlib import Path
 
+from utils.dataset_paths import find_dataset_root
 from utils.data_preparation import inspect_split_leakage
 
 
@@ -27,7 +28,7 @@ def main():
 
     args = parse_args()
 
-    dataset_dir = Path(args.dataset_dir)
+    dataset_dir = find_dataset_root(Path(args.dataset_dir))
     output_json = Path(args.output_json)
 
     report = inspect_split_leakage(dataset_dir)

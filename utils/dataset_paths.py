@@ -2,6 +2,7 @@ from pathlib import Path
 
 
 SPLIT_NAMES = ("train", "validation", "test")
+MAX_SEARCH_DEPTH = 4
 
 
 def find_dataset_root(path):
@@ -17,8 +18,8 @@ def find_dataset_root(path):
     if _has_expected_splits(path):
         return path
 
-    for child in sorted(path.iterdir()):
-        if child.is_dir() and _has_expected_splits(child):
+    for child in _iter_subdirectories(path, max_depth=MAX_SEARCH_DEPTH):
+        if _has_expected_splits(child):
             return child
 
     raise ValueError(
@@ -57,3 +58,17 @@ def resolve_test_dir(dataset_root=None, test_dir=None):
 def _has_expected_splits(path):
 
     return all((path / split_name).is_dir() for split_name in SPLIT_NAMES)
+
+
+def _iter_subdirectories(path, max_depth):
+
+    path = Path(path)
+
+    for child in sorted(path.iterdir()):
+        if not child.is_dir():
+            continue
+
+        yield child
+
+        if max_depth > 1:
+            yield from _iter_subdirectories(child, max_depth - 1)
