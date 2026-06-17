@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "name": "fruits360",
+      "root": "D:/path/to/fruits360",
+      "class_map": {
+        "Apple Red 1": "Apple",
+        "Banana": "Banana",
+        "Cucumber Ripe": "Cucumber",
+        "Grape Blue": "Grape",
+        "Mango": "Mango",
+        "Orange": "Orange",
+        "Pear": "Pear",
+        "Tomato 1": "Tomato"
+      }
+    },
+    {
+      "name": "real_world",
+      "root": "D:/path/to/real_dataset",
+      "class_map": {
+        "apple": "Apple",
+        "banana": "Banana",
+        "cucumber": "Cucumber",
+        "grapes": "Grape",
+        "mango": "Mango",
+        "orange": "Orange",
+        "pear": "Pear",
+        "tomato": "Tomato"
+      }
+    }
+  ]
+}
